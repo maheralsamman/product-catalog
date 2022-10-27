@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { auth, provider } from "../firebase";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 
 const Login = () => {
   const router = useRouter();
@@ -16,9 +16,10 @@ const Login = () => {
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
-        if(user) router.push("/");
+        if (user) router.push("/");
         // ...
-      }).catch((error) => {
+      })
+      .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
@@ -29,18 +30,20 @@ const Login = () => {
         // ...
       });
   };
+useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setUser(user);
+          console.log(user.displayName, "is logged in");
+          //const uid = user.uid;
+        }})
+}, [])
 
-  const signOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        setUser(null);
-        router.push("/");
-      })
-      .catch((err) => alert(err.message));
-  };
+
+   
+
   return (
-    <div>
+    <div >
       {!user ? (
         <button onClick={signIn}>Login with Google</button>
       ) : (
