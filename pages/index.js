@@ -10,6 +10,7 @@ import { auth, provider } from "../firebase";
 import Header from "../components/Header";
 import Categories from "../components/Categories";
 import NewProduct from "../components/NewProduct";
+import Search from "../components/Search";
 
 export default function Home({ products }) {
   const [loggedUser, setLoggedUser] = useState(null);
@@ -128,15 +129,11 @@ export default function Home({ products }) {
           category={category}
           addProduct={addProduct}
         />
-        <section>
-          <input
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            type="text"
-            placeholder="Search word"
-          />
-          <button onClick={searchHandler}>Search</button>
-        </section>
+        <Search
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          searchHandler={searchHandler}
+        />
         <main>
           <ProductList products={myProducts} />
         </main>

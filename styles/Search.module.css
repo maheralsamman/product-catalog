@@ -1,19 +1,23 @@
 .container{
     display: flex;
-    width: 70%;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2em;
+    margin-block: 2em;
+    height: 2.5em;
 }
-.input {
+
+.input{
     background: #00bf9c;
     padding: 0.6em;
     border-radius: 5px;
     color: #c500bf;
+    width: 22em;
 }
 .input::placeholder {
     color: #c500bf;
     opacity: .4;
 }
-.addBtn {
+.searchBtn{
     background: #c500bf;
     padding: 0.6em;
     border-radius: 5px;
