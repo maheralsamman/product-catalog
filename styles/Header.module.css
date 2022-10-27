@@ -1,0 +1,20 @@
+.container {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.logout {
+    background: #00bf9c;
+    padding-inline: 1em;
+    border-radius: 10px;
+    margin-top: 1em;
+    color: black;
+    cursor: pointer;
+}
+.welcome {
+    background: #00bf9c;
+    border-radius: 3px;
+    padding-inline: 1em;
+    color: black;
+}

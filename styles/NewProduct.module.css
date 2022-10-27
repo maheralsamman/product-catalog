@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+}
+.input {
+    background: #00bf9c;
+    padding: 0.6em;
+    border-radius: 5px;
+    margin-top: 1em;
+    color: #c500bf;
+}
+.input::placeholder {
+    color: #c500bf;
+    opacity: .4;
+}
+.addBtn {
+    background: #c500bf;
+    padding: 0.6em;
+    border-radius: 5px;
+    color: #000000;
+}

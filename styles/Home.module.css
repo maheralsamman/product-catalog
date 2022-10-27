@@ -108,6 +108,14 @@
   margin-left: 0.5rem;
 }
 
+.titleLink {
+  cursor: pointer;
+  color: blue;
+}
+.titleLink:hover {
+  color: red;
+}
+
 @media (max-width: 600px) {
   .grid {
     width: 100%;

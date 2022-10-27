@@ -1,0 +1,20 @@
+.container {
+
+}
+.categoryBtn {
+    background: #00bf9c;
+    padding-inline: 1em;
+    border-radius: 10px;
+    margin-top: 1em;
+    color: #c500bf;
+    cursor: pointer;
+}
+.categoriesBtns{
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.total{
+    color: aquamarine;
+}
