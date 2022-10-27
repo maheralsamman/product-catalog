@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { auth, provider } from "../firebase";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import styles from "../styles/Login.module.css"
 
 const Login = () => {
   const router = useRouter();
@@ -12,21 +13,20 @@ const Login = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
+        //const credential = GoogleAuthProvider.credentialFromResult(result);
+        //const token = credential.accessToken;
         const user = result.user;
         if (user) router.push("/");
         // ...
       })
       .catch((error) => {
         // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        //const errorCode = error.code;
+        //const errorMessage = error.message;
         // The email of the user's account used.
-        const email = error.customData.email;
+        //const email = error.customData.email;
         // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        //const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
   };
@@ -43,11 +43,11 @@ useEffect(() => {
    
 
   return (
-    <div >
+    <div className={styles.login}>
       {!user ? (
-        <button onClick={signIn}>Login with Google</button>
+        <button className={styles.signIn} onClick={signIn}>Login with Google</button>
       ) : (
-        <button onClick={signOut}>Sign out {user.email}</button>
+        <button className={styles.signOut} onClick={signOut}>Sign out {user.email}</button>
       )}
     </div>
   );
