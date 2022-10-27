@@ -2,6 +2,8 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Meta from "../../../components/Meta";
 import Image from "next/image";
+import styles from "../../../styles/ProductId.module.css";
+
 const product = ({ product }) => {
   // const router = useRouter()
   // const { id } = router.query
@@ -9,14 +11,14 @@ const product = ({ product }) => {
   return (
     <div>
       {product && (
-        <>
+        <div className={styles.container}>
           <Meta title={product.title} description={product.description} />
           <h1>{product.title}</h1>
-          <Image src={product.image} width={400} height={400}></Image>
+          <Image className={styles.image} src={product.image} width={400} height={400}></Image>
           <p>{product.description}</p>
           <br />
-          <Link href="/">Go Back</Link>
-        </>
+          <Link href="/"><p className={styles.goBack}>Go Back</p></Link>
+        </div>
       )}
     </div>
   );

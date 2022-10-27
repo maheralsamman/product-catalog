@@ -1,0 +1,16 @@
+.container {
+padding-inline: 2em;
+}
+.image {
+    border-radius: 5px;
+}
+.goBack {
+    background: #00bf9c;
+    padding: 1em;
+    border-radius: 10px;
+    margin-top: 1em;
+    color: black;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
