@@ -8,7 +8,7 @@ const Search = ({ searchTerm, setSearchTerm, searchHandler }) => {
       value={searchTerm}
       onChange={(e) => setSearchTerm(e.target.value)}
       type="text"
-      placeholder="Search word"
+      placeholder="Search in the Title, Category or Description"
     />
     <button className={styles.searchBtn} onClick={searchHandler}>Search</button>
   </section>

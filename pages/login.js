@@ -1,14 +1,31 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { auth, provider } from "../firebase";
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
-import styles from "../styles/Login.module.css"
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
+import styles from "../styles/Login.module.css";
 
 const Login = () => {
   const router = useRouter();
   const [user, setUser] = useState(null);
 
-  const signIn = () => {
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        router.push("/");
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+  };
+
+  const logIn = () => {
     const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((result) => {
@@ -30,24 +47,27 @@ const Login = () => {
         // ...
       });
   };
-useEffect(() => {
+  useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-        if (user) {
-          setUser(user);
-          console.log(user.displayName, "is logged in");
-          //const uid = user.uid;
-        }})
-}, [])
-
-
-   
+      if (user) {
+        setUser(user);
+        console.log(user.displayName, "is logged in");
+        //const uid = user.uid;
+      }
+    });
+  }, []);
 
   return (
     <div className={styles.login}>
       {!user ? (
-        <button className={styles.signIn} onClick={signIn}>Login with Google</button>
+        <button className={styles.signIn} onClick={logIn}>
+          Login with Google
+        </button>
       ) : (
-        <button className={styles.signOut} onClick={signOut}>Sign out {user.email}</button>
+        <button className={styles.signOut} onClick={logOut}>
+          <span className={styles.signOutText}>Sign out from: </span>
+          {user.email}
+        </button>
       )}
     </div>
   );
