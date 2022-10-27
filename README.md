@@ -1,3 +1,5 @@
+This is an app that is built with NextJS and Firebase which is using the fakestore api https://fakestoreapi.com/products/
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

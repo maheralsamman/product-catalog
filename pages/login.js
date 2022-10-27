@@ -50,7 +50,7 @@ const Login = () => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        console.log(user.displayName, "is logged in");
+        //console.log(user.displayName, "is logged in");
         //const uid = user.uid;
       }
     });
